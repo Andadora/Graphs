@@ -8,3 +8,4 @@ graph.info()
 graph.set_start(2)
 graph.info()
 print(graph.adjacency_list)
+#check
