@@ -17,8 +17,8 @@ class GraphMatrix:
                 edge = line.split(', ')
                 self.adjacency_matrix[int(edge[0])][int(edge[1])] = int(edge[2])
 
-    def info(self):
-        print(f'edges: {self.edges}\nvertices: {self.vertices}\nstarting vertex: {self.start}')
+    def __str__(self):
+        return f'edges:\t\t\t\t{self.edges}\nvertices:\t\t\t{self.vertices}\nstarting vertex:\t{self.start}'
 
     def set_start(self, new_start):
         self.start = new_start
