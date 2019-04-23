@@ -1,3 +1,5 @@
+import Vertex
+
 class Queue:
     def __init__(self):
         self.elements = []
@@ -66,3 +68,16 @@ class Queue:
         self.down_heap(0, len(self.elements) - 2)               # jako max podaję przedostatni indeks żeby nie sortowało tego który chcemy usunąć
         self.heap_positions[self.elements_indexes.pop()] = -1   #usuwa ostatnią pozycję kopca w elind i zaznacza w hpos, że indeks o tym numerze nie znajduje się w kopc (-1)
         return self.elements.pop()
+
+    def set_distance(self, element_index, new_distance):
+        h_position = self.heap_positions[element_index]
+        if new_distance > self.elements[h_position].distance:       # jeśli nowy dystans większy:
+            self.elements[h_position].distance = new_distance
+            self.down_heap(h_position, len(self.elements) - 1)      # zepchnij element w dół kopca
+        if new_distance < self.elements[h_position].distance:       # jeśli nowy jest mniejszy:
+            self.elements[h_position].distance = new_distance
+            self.up_heap(0, h_position)                             # wypchnij element w górę
+
+    def set_previous(self, element_index, new_previous):
+        h_position = self.heap_positions[element_index]
+        self.elements[h_position].previous = new_previous
