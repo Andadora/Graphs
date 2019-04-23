@@ -1,10 +1,14 @@
 class Vertex:
-    def __init__(self, previous, distance):
+    def __init__(self, index, previous, distance):
+        self.index = index
         self.previous = previous
         self.distance = distance
 
     def __str__(self):
-        return f'poprzedni:\t\t\t\t\t{self.previous}\nodległość od startowego:\t{self.distance}\n'
+        return f'indeks:\t\t\t\t\t\t{self.index}\npoprzedni:\t\t\t\t\t{self.previous}\nodległość od startowego:\t{self.distance}\n'
+
+    def __repr__(self):
+        return f'indeks:\t\t\t\t\t{self.index}\npoprzedni:\t\t\t\t\t{self.previous}\nodległość od startowego:\t{self.distance}\n'
 
     def __lt__(self, other):
         if self.distance < other.distance:

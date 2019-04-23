@@ -1,5 +1,6 @@
 import Vertex
 
+
 class Queue:
     def __init__(self):
         self.elements = []
@@ -14,6 +15,12 @@ class Queue:
 
     def is_empty(self):
         return not self.elements
+
+    def contains(self, index):
+        if self.heap_positions[index] != -1:
+            return True
+        else:
+            return False
 
     def swap(self, first, second):
         temp = self.elements[first]
