@@ -1,9 +1,8 @@
 import GraphMatrix as GM
 import GraphList as GL
-import Queue
-import Vertex
+import GraphData as GD
 
-file = open('graf.txt', 'r').read()
+GD.graph_generate_file(4, 0.5, 0, 'graph.txt')
+file = open('graph.txt', 'r').read()
 graph = GL.GraphList(file)
-
 print(graph.dijkstra())

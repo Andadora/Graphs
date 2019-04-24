@@ -18,8 +18,8 @@ class GraphMatrix:
 
         # wczytanie macierzy sasiedztwa
         for line in lines[1:]:
-                edge = line.split(', ')
-                self.adjacency_matrix[int(edge[0])][int(edge[1])] = int(edge[2])
+            edge = line.split(', ')
+            self.adjacency_matrix[int(edge[0])][int(edge[1])] = int(edge[2])
 
     def __str__(self):
         return f'edges:\t\t\t\t{self.edges}\nvertices:\t\t\t{self.vertices}\nstarting vertex:\t{self.start}'
