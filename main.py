@@ -4,6 +4,6 @@ import Queue
 import Vertex
 
 file = open('graf.txt', 'r').read()
-graph = GM.GraphMatrix(file)
+graph = GL.GraphList(file)
 
 print(graph.dijkstra())
