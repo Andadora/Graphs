@@ -35,7 +35,7 @@ class GraphList:
         que = Queue.Queue()                         # kolejka wierzchołków do sprawdzenia
         shortest_paths = []                         # tablica przechowująca wierzchołki z indeksem, dystansem i poprzednikiem
         for i in range(self.vertices):
-            que.insert(Vertex.Vertex(i, -1, inf))
+            que.insert(Vertex.Vertex(i, -1, inf, ''))
         que.set_distance(self.start, 0)
 
         while not que.is_empty():
@@ -46,4 +46,5 @@ class GraphList:
                     if current.distance + edge[1] < que[edge[0]].distance:
                         que.set_distance(edge[0], current.distance + edge[1])
                         que.set_previous(edge[0], current.index)                              # aktualizuj poprzednika
+                        que.set_path(edge[0], f'{current.path}{current.index} -> ')                 # aktualizuj sciezke
         return shortest_paths

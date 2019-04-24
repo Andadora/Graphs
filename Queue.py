@@ -88,3 +88,7 @@ class Queue:
     def set_previous(self, element_index, new_previous):
         h_position = self.heap_positions[element_index]
         self.elements[h_position].previous = new_previous
+
+    def set_path(self, element_index, new_path):
+        h_position = self.heap_positions[element_index]
+        self.elements[h_position].path = new_path

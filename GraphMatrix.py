@@ -31,7 +31,7 @@ class GraphMatrix:
         que = Queue.Queue()                         # kolejka wierzchołków do sprawdzenia
         shortest_paths = []                         # tablica przechowująca wierzchołki z indeksem, dystansem i poprzednikiem
         for i in range(self.vertices):
-            que.insert(Vertex.Vertex(i, -1, inf))
+            que.insert(Vertex.Vertex(i, -1, inf, ''))
         que.set_distance(self.start, 0)
 
         while not que.is_empty():
@@ -41,5 +41,6 @@ class GraphMatrix:
                 if que.contains(i):             # sprawdź, czy sprawdzany wierzchołek nie ma już wyliczonej najkrótszej ścieżki
                     if current.distance + self.adjacency_matrix[current.index][i] < que[i].distance:      # jeśli droga przez current jest krótsza:
                         que.set_distance(i, current.distance + self.adjacency_matrix[current.index][i])   # ustaw ją jako nowy dystans
-                        que.set_previous(i, current.index)                                                # aktualizuj poprzednika
+                        que.set_previous(i, current.index)                              # aktualizuj poprzednika
+                        que.set_path(i, f'{current.path}{current.index} -> ')                 # aktualizuj sciezke
         return shortest_paths
